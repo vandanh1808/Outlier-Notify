@@ -118,7 +118,7 @@ def render_and_read() -> Tuple[str, str]:
 
     with sync_playwright() as p:
         # Replit cần --no-sandbox
-        browser = p.chromium.launch(headless=True, args=["--no-sandbox"])
+        browser = p.chromium.launch(headless=True, args=["--no-sandbox", "--disable-gpu", "--disable-dev-shm-usage"])
         ctx = browser.new_context()
         ctx.add_cookies(_parse_cookie_string(cookie_str, ".outlier.ai"))
 
